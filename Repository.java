@@ -65,3 +65,29 @@ public class Repository {
         }
     }
 
+    public List<Student> getAllStudents() {
+        String sql = "SELECT * FROM students";
+        List<Student> students = new ArrayList<>();
+        try (Statement stmt = connection.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                Student s = new Student.Builder()
+                        .id(rs.getInt("id"))
+                        .first_name(rs.getString("first_name"))
+                        .initial(rs.getString("initial"))
+                        .last_name(rs.getString("last_name"))
+                        .age(rs.getInt("age"))
+                        .email(rs.getString("email"))
+                        .gender(rs.getString("gender"))
+                        .course(rs.getString("course"))
+                        .year(rs.getInt("year"))
+                        .section(rs.getInt("section"))
+                        .build();
+                students.add(s);
+            }
+        } catch (SQLException e) {
+            System.out.println("Read failed: " + e.getMessage());
+        }
+        return students;
+    }
