@@ -18,11 +18,11 @@ public class Main{
           int option = scanner.nextInt();
           scanner.nextLine();
 
-          switch (option){
+          switch (option) {
               case 1:
                   List<Student> allStudents = repo.getAllStudents();
                   System.out.println("\n========== ALL STUDENTS IN DATABASE ==========");
-                  if (allStudents.isEmpty()){
+                  if (allStudents.isEmpty()) {
                       System.out.println("No student saved");
                   } else {
                       // Display all student records in a formatted column layout
@@ -148,7 +148,7 @@ public class Main{
                       }
 
                   }
-                   break;
+                  break;
               case 4:
                   System.out.print("Clear all existing students? (y/n): ");
                   String clearChoice = scanner.nextLine();
@@ -156,13 +156,18 @@ public class Main{
                       repo.clearAllStudents();
                   }
                   break;
-               case 5:
-                   break;
+              case 5:
+                  menu = false;
+                  repo.close();
+                  break;
+
               default:
-                   break;
+                  System.out.println("Input the correct number");
+                  break;
           }
-
+          }
+          repo.close();
+          scanner.close();
       }
-
   }
-}
+
