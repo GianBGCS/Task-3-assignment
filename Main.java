@@ -79,6 +79,7 @@ public class Main{
                   System.out.println("You can add multiple students.\n");
 
                   while (true) {
+                      try {
                           System.out.println("--- New Student ---");
 
                           System.out.print("Student ID (unique number): ");
@@ -136,6 +137,9 @@ public class Main{
                           } else {
                               System.out.println("✗ Failed to save student (ID might already exist).");
                           }
+                      } catch (InputMismatchException e) {
+                          System.out.println("Enter correct value. ");
+                      }
 
                       System.out.print("\nAdd another student? (y/n): ");
                       String choice = scanner.nextLine();
