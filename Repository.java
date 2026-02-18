@@ -127,3 +127,14 @@ public class Repository {
             System.out.println("Clear failed: " + e.getMessage());
         }
     }
+
+    public void close() {
+        try {
+            if (connection != null) {
+                connection.close();
+            }
+        } catch (SQLException e) {
+            System.out.println("Close failed: " + e.getMessage());
+        }
+    }
+}
