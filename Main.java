@@ -150,7 +150,12 @@ public class Main{
                   }
                    break;
               case 4:
-                   break;
+                  System.out.print("Clear all existing students? (y/n): ");
+                  String clearChoice = scanner.nextLine();
+                  if (clearChoice.equalsIgnoreCase("y")) {
+                      repo.clearAllStudents();
+                  }
+                  break;
                case 5:
                    break;
               default:
