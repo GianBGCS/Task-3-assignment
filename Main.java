@@ -46,6 +46,32 @@ public class Main{
                   }
                   break;
               case 2:
+                  System.out.print("\nEnter a student ID to view details (or 0 to skip): ");
+                  int idToView = scanner.nextInt();
+                  scanner.nextLine();
+                  if (idToView != 0) {
+                      Student s = repo.getStudentById(idToView);
+                      if (s != null) {
+                          System.out.printf("%-6s %-12s %-8s %-12s %-5s %-25s %-8s %-10s %-6s %-7s%n",
+                                  "ID", "First", "Init", "Last", "Age", "Email",
+                                  "Gender", "Course", "Year", "Section");
+                          System.out.println("------------------------------------------------------------------------------------------------------------------");
+
+                          System.out.printf("%-6d %-12s %-8s %-12s %-5d %-25s %-8s %-10s %-6d %-7d%n",
+                                  s.getId(),
+                                  s.getFirst_Name(),
+                                  s.getInitial(),
+                                  s.getLast_Name(),
+                                  s.getAge(),
+                                  s.getEmail(),
+                                  s.getGender(),
+                                  s.getCourse(),
+                                  s.getYear(),
+                                  s.getSection());
+                      } else {
+                          System.out.println("No student found.");
+                      }
+                  }
                   break;
               case 3:
                    break;
