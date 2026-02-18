@@ -117,3 +117,13 @@ public class Repository {
         }
         return null;
     }
+
+    public void clearAllStudents() {
+        String sql = "DELETE FROM students";
+        try (Statement stmt = connection.createStatement()) {
+            stmt.executeUpdate(sql);
+            System.out.println("All students deleted.");
+        } catch (SQLException e) {
+            System.out.println("Clear failed: " + e.getMessage());
+        }
+    }
