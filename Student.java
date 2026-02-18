@@ -62,7 +62,7 @@ public final class Student {
     }
 
     public int getSection() {
-        return section;
+        return SECTION;
     }
 
     @Override
@@ -71,5 +71,73 @@ public final class Student {
                 ID, FIRST_NAME, INITIAL, LAST_NAME, AGE, EMAIL, GENDER, COURSE, YEAR, SECTION);
     }
 
+    public static class Builder {
+        private int id;
+        private String first_name;
+        private String initial;
+        private String last_name;
+        private int age;
+        private String email;
+        private String gender;
+        private String course;
+        private int year;
+        private int section;
+
+
+        public Builder id(int id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder first_name(String first_name) {
+            this.first_name = first_name;
+            return this;
+        }
+
+        public Builder initial(String initial) {
+            this.initial = initial;
+            return this;
+        }
+
+        public Builder last_name(String last_name) {
+            this.last_name = last_name;
+            return this;
+        }
+
+        public Builder age(int age) {
+            this.age = age;
+            return this;
+        }
+
+        public Builder email(String email) {
+            this.email = email;
+            return this;
+        }
+
+        public Builder gender(String gender) {
+            this.gender = gender;
+            return this;
+        }
+
+        public Builder course(String course) {
+            this.course = course;
+            return this;
+        }
+
+        public Builder year(int year) {
+            this.year = year;
+            return this;
+        }
+
+        public Builder section(int section) {
+            this.section = section;
+            return this;
+        }
+
+        public Student build() {
+
+            return new Student(this);
+        }
+    }
 
 }
