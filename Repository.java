@@ -91,3 +91,29 @@ public class Repository {
         }
         return students;
     }
+
+     public Student getStudentById(int id) {
+        String sql = "SELECT * FROM students WHERE id = ?";
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    return new Student.Builder()
+                            .id(rs.getInt("id"))
+                            .first_name(rs.getString("first_name"))
+                            .initial(rs.getString("initial"))
+                            .last_name(rs.getString("last_name"))
+                            .age(rs.getInt("age"))
+                            .email(rs.getString("email"))
+                            .gender(rs.getString("gender"))
+                            .course(rs.getString("course"))
+                            .year(rs.getInt("year"))
+                            .section(rs.getInt("section"))
+                            .build();
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Read by ID failed: " + e.getMessage());
+        }
+        return null;
+    }
