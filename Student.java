@@ -26,43 +26,49 @@ public final class Student {
     }
     
     public int getId() {
-        return id;
+        return ID;
     }
 
     public String getFirst_Name() {
-        return first_name;
+        return FIRST_NAME;
     }
 
     public String getInitial() {
-        return initial;
+        return INITIAL;
     }
 
     public String getLast_Name() {
-        return last_name;
+        return LAST_NAME;
     }
 
     public int getAge() {
-        return age;
+        return AGE;
     }
 
     public String getEmail() {
-        return email;
+        return EMAIL;
     }
 
     public String getGender() {
-        return gender;
+        return GENDER;
     }
 
     public String getCourse() {
-        return course;
+        return COURSE;
     }
 
     public int getYear() {
-        return year;
+        return YEAR;
     }
 
     public int getSection() {
         return section;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Student{id=%d, name='%s %s %s', age=%d, email='%s', gender='%s', course='%s', year=%d, section=%d}",
+                ID, FIRST_NAME, INITIAL, LAST_NAME, AGE, EMAIL, GENDER, COURSE, YEAR, SECTION);
     }
 
 
