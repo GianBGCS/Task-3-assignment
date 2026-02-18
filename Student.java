@@ -24,4 +24,46 @@ public final class Student {
         this.YEAR = builder.year;
         this.SECTION = builder.section;
     }
+    
+    public int getId() {
+        return id;
+    }
+
+    public String getFirst_Name() {
+        return first_name;
+    }
+
+    public String getInitial() {
+        return initial;
+    }
+
+    public String getLast_Name() {
+        return last_name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public String getCourse() {
+        return course;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public int getSection() {
+        return section;
+    }
+
+
 }
