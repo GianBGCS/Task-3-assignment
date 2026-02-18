@@ -11,7 +11,7 @@ public class Main{
       boolean menu = true;
 
       while (menu){
-
+          try{
           System.out.println("\nMenu \n[1] See saved students \n[2] Get Student by ID \n[3] Add students \n[4] Clear all students saved \n[5] Quit"
           );
           System.out.print("Choose an option: ");
@@ -165,9 +165,13 @@ public class Main{
                   System.out.println("Input the correct number");
                   break;
           }
+      } catch (InputMismatchException e) {
+          System.out.println("Enter the correct value.");
+          scanner.nextLine();
           }
-          repo.close();
-          scanner.close();
-      }
   }
+        repo.close();
+        scanner.close();
+   }
+}
 
